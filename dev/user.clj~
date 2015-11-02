@@ -1,0 +1,7 @@
+(ns user
+  (:require [reloaded.repl :refer [system reset stop]]
+            [guymover.web :as web]))
+
+
+(defn repl-start []
+  (#'web))

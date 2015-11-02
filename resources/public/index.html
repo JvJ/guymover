@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./base.css" />
+  </head>
+  <body>
+
+    <!--Includes for the scripts-->
+    <script src="out/goog/base.js"></script>
+    <script src="app.js"></script>
+    <script>
+      goog.require("guymover.client");
+      
+    </script>
+    
+    <canvas id="guyBoard"></canvas>
+
+    <script>
+      guymover.client.init_client();
+      guymover.client.drawTest();
+    </script>
+  </body>
+</html>
