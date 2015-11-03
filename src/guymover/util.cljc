@@ -1,32 +1,15 @@
-;; (ns guymover.util
-;;   #?@(:cljs ((:require [goog.string :as gstring]
-;;                        [goog.string.format]
-;;                        [cljs.core.typed :refer []
-;;                         :as t])
-;;              (:require-macros [cljs.core.typed :refer [ann def-alias]
-;;                                :as t]))
+(ns guymover.util
+  #?@(:cljs ((:require [goog.string :as gstring]
+                       [goog.string.format]
+                       [cljs.core.typed :refer []
+                        :as t])
+             (:require-macros [cljs.core.typed :refer [ann def-alias]
+                               :as t]))
             
-;;             :clj ((:require [clojure.core.typed
-;;                              :refer [
-;;                                      ann def-alias]
-;;                              :as t]))))
-
-#?(:cljs 
-   (ns guymover.util
-     (:require [goog.string :as gstring]
-               [goog.string.format]
-               [cljs.core.typed :refer []
-                :as t])
-     (:require-macros [cljs.core.typed :refer [ann def-alias]
-                       :as t]))
-   :clj
-   (ns guymover.util
-     (:require [clojure.core.typed
-                :refer [
-                        ann def-alias]
-                :as t])))
-
-
+            :clj ((:require [clojure.core.typed
+                             :refer [
+                                     ann def-alias]
+                             :as t]))))
 
 (def-alias Color
   "An RGB color"
@@ -102,7 +85,6 @@ all existing colors is picked."
                                (cons 0
                                      (map #(clr-dist clr %)
                                           color-set)))}))]
-
     
     (or (:clr (first (filter #(>= (:dist %) threshold) gens)))
         (:clr (apply max-key :dist gens)))))
@@ -116,11 +98,3 @@ all existing colors is picked."
   (conj colors (clr-gen colors
                         :retries retries
                         :threshold threshold)))
-
-
-;; This entire namespace cheks out fine,
-;; when this function is clearly annotated wrong
-(ann fhtagn [t/Int -> t/Int])
-(defn fhtagn [i]
-  (str i))
-
