@@ -3,6 +3,6 @@
             [expectations :as e]))
 
 (e/expect "#FFFFFF"
-          (count (sut/clr-hex [255 255 255])))
+          (sut/clr-hex [255 255 255]))
 
 (e/expect empty? (list))
